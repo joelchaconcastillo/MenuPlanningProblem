@@ -19,12 +19,13 @@ using namespace std;
  *  pm_: mutation probability
  *  finalTime_: total time of execution
  * */
-MA::MA(int N_, double pc_, double pm_, double finalTime_){
+MA::MA(int N_, double pc_, double pm_, double finalTime_, string saveFile_){
 	if (N_ % 2){ cerr << "El tam. de poblacion debe ser par" << endl; exit(-1); }
 	N = N_;
 	pc = pc_;
 	pm = pm_;
 	finalTime = finalTime_;
+	saveFile=saveFile_;
 	struct timeval currentTime; 
 	gettimeofday(&currentTime, NULL);
 	initialTime = (double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6;
@@ -178,11 +179,13 @@ void MA::initDI(){
 void MA::runMemetic(){
 	initPopulation();
 	initDI();
+	savePopulation();
 	int generation = 0;
 	struct timeval currentTime; 
 	gettimeofday(&currentTime, NULL);
 	double elapsedTime = (double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6;
 	elapsedTime -= initialTime;
+        double accumTime=elapsedTime, prevTime=elapsedTime; 
 	while(elapsedTime < finalTime){//Infinitas generaciones
 		int minDistance = INT_MAX;
 		for (int i = 0; i < population.size(); i++){
@@ -198,6 +201,12 @@ void MA::runMemetic(){
 		generation++;
 		gettimeofday(&currentTime, NULL);
 		elapsedTime = ((double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6)-initialTime;
+		accumTime += elapsedTime-prevTime;
+		prevTime=elapsedTime;
+		if(accumTime>=0.01*finalTime){
+		  accumTime -= 0.01*finalTime;
+		  savePopulation();
+		}
 	}
 	int indexBest = 0;
 	for (int i = 1; i < population.size(); i++)
@@ -224,15 +233,14 @@ void MA::run(int minimumLS){
   	//double ls_time = ei->ind.localSearch_testing_time(finalTime);
         bool isMeasuringTime=true;
   	double ls_time = ei->ind.localSearch(finalTime, isMeasuringTime);
-	cout << ls_time<<" " <<finalTime<<endl;
         if(ls_time*minimumLS > finalTime){
-	cout<<"LOCAL_SEARCH..."<<endl;
+	  cout<<"LOCAL_SEARCH..."<<endl;
 	  ei->ind.localSearch(finalTime-ls_time);
 	  cout << ei->ind.fitness<<endl;
 	  ei->ind.exportcsv();
 	}
 	else{
-		cout <<"MEMETIC..."<<endl;
+          cout <<"MEMETIC..."<<endl;
 	  finalTime -=ls_time;
 	  timeLS = FACTOR_TIME_PER_LOCAL_SEARCH*ls_time;
 	  runMemetic();
@@ -240,4 +248,16 @@ void MA::run(int minimumLS){
 	delete ei;
 
 }
+void MA::savePopulation(){
 
+     std::fstream fout;
+    fout.open(saveFile,fstream::app|fstream::out );
+    for(int i=0; i<N; i++)
+    {
+       for(auto var:population[i]->ind.x_var){
+	  fout <<var<<" ";
+       }
+       fout <<population[i]->ind.fitness<<endl;
+    }
+    fout.close();
+}

@@ -52,13 +52,13 @@ using namespace std;
 //this numbers is calculated based on the time required to find a feasible solution
 #define LOWEST_NUMBER_OF_GENERATIONS 10
 
-//This factor extends time applied to each local search for each generation in the memetic algorithm,
-//which is multiplied by the lowest time in a local search to attain a feasible solution
+//This factor extends time required to attain a feasible solution of the local search for each generation in the memetic algorithm,
+//in other words it is multiplied by the lowest time in a local search to attain a feasible solution
 //note that as this value is longer a high intensification for each local search might be applied
 //and might be a good parameter to tunne for the most challenging instances
 #define FACTOR_TIME_PER_LOCAL_SEARCH 10
 
-//This defines the minimum days allowed for  repetition
+//This defines the minimum days allowed for repetition
 #define DAYS_FAVORITE 7*3
 #define DAYS_NO_FAVORITE 7*4
 

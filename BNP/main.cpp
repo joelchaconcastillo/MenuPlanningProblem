@@ -16,8 +16,10 @@ extern double g_finalTime;
    5) out file
 */
 int main(int argc, char **argv){
-	srand(time(NULL));
-	srand(1);
+	int seed = atoi(argv[6]);
+	string saveFile=string(argv[7]);
+//	srand(time(NULL));
+	srand(seed);
 	g_finalTime = atof(argv[4])*60;//25 * 60;
 	//loading information for the problem
 	//note that MPP is a derived class of MPP_Problem.
@@ -25,7 +27,7 @@ int main(int argc, char **argv){
         STP.load_data(argc, argv);
 	MPP::MPP_problem = &STP;
         //everithing seem's to be OK, thus starting the algorithm...
-	MA ma(g_N, g_pc, g_pm, g_finalTime);
+	MA ma(g_N, g_pc, g_pm, g_finalTime, saveFile);
 	//minimum amount of local searches that should be applied
 	//if there is not enough time then it applies just local searches
 	int minimumLS=LOWEST_NUMBER_OF_GENERATIONS*g_N; //ten times the population size

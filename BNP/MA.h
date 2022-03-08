@@ -8,7 +8,7 @@ struct ExtendedIndividual {
 };
 class MA {
 	public:
-		MA(int N_, double pc_, double pm_, double finalTime_);
+		MA(int N_, double pc_, double pm_, double finalTime_, string saveFile_);
 		void run(int minimumLS);
 		void runMemetic();
 	private:
@@ -26,6 +26,7 @@ class MA {
 		void mutation();
 		void localSearch();
 		void replacement();
+		void savePopulation();
 		int getRandomInteger0_N(int n){ 
                    return (int) ((n + 1.0)*rand()/(RAND_MAX+1.0));
                 }
@@ -41,5 +42,6 @@ class MA {
 		double initialTime;
 		double DI;
 		double timeLS;
+		string saveFile="";
 };
 #endif
