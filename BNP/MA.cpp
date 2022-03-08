@@ -177,14 +177,15 @@ void MA::initDI(){
 	DI = meanDistance * 1;
 }
 void MA::runMemetic(){
+	struct timeval currentTime; 
+	gettimeofday(&currentTime, NULL);
+	initialTime=(double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6;
 	initPopulation();
 	initDI();
 	savePopulation();
 	int generation = 0;
-	struct timeval currentTime; 
 	gettimeofday(&currentTime, NULL);
-	double elapsedTime = (double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6;
-	elapsedTime -= initialTime;
+	double elapsedTime = (double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6-initialTime;
         double accumTime=elapsedTime, prevTime=elapsedTime; 
 	while(elapsedTime < finalTime){//Infinitas generaciones
 		int minDistance = INT_MAX;
@@ -203,8 +204,8 @@ void MA::runMemetic(){
 		elapsedTime = ((double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6)-initialTime;
 		accumTime += elapsedTime-prevTime;
 		prevTime=elapsedTime;
-		if(accumTime>=0.01*finalTime){
-		  accumTime -= 0.01*finalTime;
+		if(accumTime>=0.1*finalTime){
+		  accumTime -= 0.1*finalTime;
 		  savePopulation();
 		}
 	}
@@ -215,7 +216,7 @@ void MA::runMemetic(){
 	   indexBest = i;
         }
 	population[indexBest]->ind.exportcsv();
-	cout << population[indexBest]->ind.fitness;
+	//cout << population[indexBest]->ind.fitness;
 
 }
 /*
