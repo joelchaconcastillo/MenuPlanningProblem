@@ -57,7 +57,7 @@ using namespace std;
 //note that as this value is longer a high intensification for each local search might be applied
 //and might be a good parameter to tunne for the most challenging instances
 #define FACTOR_TIME_PER_LOCAL_SEARCH 30
-//#define FACTOR_TIME_PER_LOCAL_SEARCH 1
+//#define FACTOR_TIME_PER_LOCAL_SEARCH 100 //NOTE test this!!
 
 //This defines the minimum days allowed for repetition
 #define DAYS_FAVORITE 7*3
@@ -67,7 +67,7 @@ using namespace std;
 #define MAX_ITE_ONE_DAY_LS 200
 
 ///////////////////////////////////////////////////////
-//Weights that are taken into account in the model
+//Weights that are taken into account in the model NOTE check 1e6...
 #define W_FEASIBILITY 1e4
 //Penalization for unfulfilled constraint per day ->Daily constraints
 #define WEIGHT_DAY 1.0e6  

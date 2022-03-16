@@ -1,0 +1,427 @@
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+gen... 5
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+gen... 5
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+gen... 5
+gen... 6
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+gen... 3
+gen... 4
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+gen... 2
+ 
+Data:  ::	 MEMETIC...
+gen... 1
+ 
