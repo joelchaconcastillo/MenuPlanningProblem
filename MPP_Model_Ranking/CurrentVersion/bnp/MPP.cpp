@@ -103,17 +103,20 @@ void MPP::restart(){
   note that this new item is different from those that are already selected.
  * */
 void MPP::perturb_opt(vector<int> &data, int day, int which){
-           set<int> id_Day;
-	   for(int opt = 0; opt < N_OPT_DAY; opt++)
-	     id_Day.insert(v_opt_dishes[opt][data[day*N_OPT_DAY+opt]].description);
-	   int rd = random_dish(which);
-           int id = v_opt_dishes[which][rd].description;
-	   while(id_Day.find(id) != id_Day.end())//it forces to different dishes in a day
-	   { 
-	      rd = random_dish(which);
-	      id = v_opt_dishes[which][rd].description;
-           }
-	   data[day * N_OPT_DAY + which] = rd;
+	   
+	   data[day * N_OPT_DAY + which] = random_dish(which);
+	  
+         //  set<int> id_Day;
+	 //  for(int opt = 0; opt < N_OPT_DAY; opt++)
+	 //    id_Day.insert(v_opt_dishes[opt][data[day*N_OPT_DAY+opt]].description);
+	 //  int rd = random_dish(which);
+         //  int id = v_opt_dishes[which][rd].description;
+	 //  while(id_Day.find(id) != id_Day.end())//it forces to different dishes in a day
+	 //  { 
+	 //     rd = random_dish(which);
+	 //     id = v_opt_dishes[which][rd].description;
+         //  }
+	 //  data[day * N_OPT_DAY + which] = rd;
 }
 /*
  *

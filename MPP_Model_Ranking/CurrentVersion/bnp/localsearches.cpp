@@ -20,7 +20,6 @@ extern vector<double> g_u_rank_category;
    First_Improvement_Hill_Climbing_swap: Aims to maximize the variability between dishes
  * */
 double MPP::localSearch(double finalTime, bool isMeasuringTime){
-//	cout <<"/////////////////////////"<<endl;
      calculateFeasibilityDegree(x_var, objFeasibility[0], objFeasibility[1]);
      calculateVariability(x_var, objVariability);
      vector<int> bestIndividual = x_var;
@@ -32,18 +31,9 @@ double MPP::localSearch(double finalTime, bool isMeasuringTime){
      double initialTime = (double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6;
      double elapsedTime = (double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6;
      elapsedTime -= initialTime;
-     int ite=0;
      while(elapsedTime < finalTime){
-	     ite++;
-        calculateFeasibilityDegree(x_var, objFeasibility[0], objFeasibility[1]);
-        calculateVariability(x_var, objVariability);
         First_Improvement_Hill_Climbing(neighbors, x_var, objFeasibility, objVariability);
-//	cout <<fixed<< "before..."<<setprecision(10)<< modelation(objFeasibility, objVariability)<<endl;
-//	Greedy_Improvement(x_var, objFeasibility, objVariability);
-//	cout <<fixed<<setprecision(10)<< modelation(objFeasibility, objVariability)<<endl;
         First_Improvement_Hill_Climbing_swap(neighbors_swap, x_var, objFeasibility, objVariability);
-
-//        First_Improvement_Hill_Climbing_swap2(neighbors_swap2, x_var, objFeasibility, objVariability);
         if(comp_objs(objFeasibility, objVariability, bestFeas, bestVar)){
 	  bestFeas=objFeasibility;
 	  bestVar=objVariability;
@@ -80,36 +70,9 @@ double MPP::localSearch(double finalTime, bool isMeasuringTime){
 	        oneDaylocalSearch(x_var, selectedDay);
 	   }
 	   else{
-		//if(!badDaysVar.empty()){
-	 	//   vector<int> tmp;
-	        //   for(auto it = badDaysVar.begin(); it != badDaysVar.end(); it++) tmp.push_back(*it);
-		//   random_shuffle(tmp.begin(), tmp.end());
-		//   for(int i = 0; i < tmp.size(); i++){
-		//	  int a=tmp[rand()%tmp.size()];
-		//	  int b=tmp[rand()%tmp.size()];
-		//	  for(int k = 0; k < N_OPT_DAY; k++) swap(x_var[a*N_OPT_DAY+k], x_var[b*N_OPT_DAY+k]);
-		//   }
-		//}
-	//	else{
-		//if(rand()%2){
 		 selectedDay = rand() % nDias;
 		 perturb_day(x_var, selectedDay);
 	         oneDaylocalSearch(x_var, selectedDay);
-
-
-
-		//}else{
-		   // if(rand()%2){
-		   // vector<int> perm(nDias);
-		   // for(int i = 0; i<nDias; i++)perm[i]=i;
-		   // random_shuffle(perm.begin(), perm.end());
-		   // vector<int> tmp=x_var;
-		   // for(int i = 0; i< nDias; i++){
-		   //   for(int k = 0; k <N_OPT_DAY; k++) x_var[i*N_OPT_DAY+k], tmp[perm[i]*N_OPT_DAY+k];
-		   // }
-		   // }
-		//}
-	//	}
 	   }
 	 }
 	 else{
@@ -121,7 +84,7 @@ double MPP::localSearch(double finalTime, bool isMeasuringTime){
 	gettimeofday(&currentTime, NULL);
 	elapsedTime = ((double) (currentTime.tv_sec) + (double) (currentTime.tv_usec)/1.0e6)-initialTime;
      }
-     //cout << ite<<endl;
+
      x_var = bestIndividual;
      evaluate();
      return elapsedTime;
@@ -133,7 +96,7 @@ double MPP::localSearch(double finalTime, bool isMeasuringTime){
  *some preliminary test indicates that to converge faste is better a local search instead into the crossover.
  * */
 void MPP::First_Improvement_Hill_Climbing_swap(vector<Neighbor_swap> &neighbors, vector<int> &best_sol, vector<double> &bestFeas, vector<pair<double, double> > &bestVar){
-
+  evaluate(best_sol, bestFeas, bestVar);
   bool improved= true;
   vector<int> current_sol = best_sol;
   vector<pair<double, double> > currentVar = bestVar;
@@ -160,6 +123,8 @@ void MPP::First_Improvement_Hill_Climbing_swap(vector<Neighbor_swap> &neighbors,
  *This is the "First improvement hill climbing regarding first feasibility and second to the variability
  * */
 void  MPP::First_Improvement_Hill_Climbing(vector<Neighbor> &neighbors, vector<int> &currentSol, vector<double> &currentFeas, vector<pair<double, double> > &currentVar){
+
+   evaluate(currentSol, currentFeas, currentVar); 
    //incremental evaluation values...
    struct Solution_LS best;
    best.objFeasibility=currentFeas;
@@ -294,7 +259,7 @@ void MPP::inc_eval(struct Solution_LS &current, Neighbor &new_neighbor, vector<d
    new_objs[0]  = current.objFeasibility[0] - original_partial_infeasibility_day + new_partial_infeasibility_day;
    new_objs[1]  = current.objFeasibility[1] - original_partial_infeasibility_global + new_partial_infeasibility_global;
 
-   if(new_objs[0] != current.objFeasibility[0]) return; //kind of branch procedure....
+  if(new_objs[0] != current.objFeasibility[0]) return; //kind of branch procedure....
    if(new_objs[1] != current.objFeasibility[1]) return;
    //variability... this code-part will be optimized...
    int tmp = current.x_var[new_neighbor.variable];
@@ -496,5 +461,47 @@ void MPP::First_Improvement_Hill_Climbing_swap2(vector<Neighbor_swap> &neighbors
 	}
      }
   }
+}
+void MPP::Improvement(vector<int> &best_sol, vector<double> &bestFeas, vector<pair<double, double> > &bestVar){
+   int K=3;
+   calculateVariability(best_sol, bestVar);
+   auto candidateX=best_sol;
+   auto candidateVar=bestVar;
+   auto xb=best_sol;
+   double fitb=modelation(bestFeas, bestVar);
+   vector<int> permutationDays;
+   bool improved=true;
+   for(int i=0;i<nDias; i++)permutationDays.push_back(i);
+//   while(improved)
+   {
+	   improved=false;
+   random_shuffle(permutationDays.begin(), permutationDays.end());
+      for(auto idDay:permutationDays){
+        for(int i = max(0, idDay-K); i < min(idDay+K, nDias); i++){
+      	  vector<int> perm;
+              for(int ii = i; ii < min(i+K, nDias); ii++)perm.push_back(ii);
+   	   do{
+   	      for(int j=0; j < perm.size(); j++){
+   	        for(int jj = 0; jj < N_OPT_DAY; jj++){
+   		   candidateX[(i+j)*N_OPT_DAY+jj]=best_sol[perm[j]*N_OPT_DAY+jj];
+   	        }
+   	      }
+   	      calculateVariability(candidateX, candidateVar);
+   	      auto nf=modelation(bestFeas,candidateVar);
+   	      if( nf<fitb){
+   		     fitb=nf;
+   		     xb=candidateX;
+   		     improved=true;
+   		     //cout << nf<<endl;
+   	      } 
+   	   }while(next_permutation(perm.begin(), perm.end()));
+           best_sol=xb;
+           candidateX=xb;
+           calculateVariability(best_sol, bestVar);
+           candidateVar=bestVar;
+           fitb=modelation(bestFeas, bestVar);
+	}
+      }
+    }
 }
 

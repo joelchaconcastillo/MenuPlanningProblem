@@ -56,7 +56,7 @@ using namespace std;
 //in other words it is multiplied by the lowest time in a local search to attain a feasible solution
 //note that as this value is longer a high intensification for each local search might be applied
 //and might be a good parameter to tunne for the most challenging instances
-#define FACTOR_TIME_PER_LOCAL_SEARCH 100
+#define FACTOR_TIME_PER_LOCAL_SEARCH 10
 //#define FACTOR_TIME_PER_LOCAL_SEARCH 100 //NOTE test this!!
 
 //This defines the minimum days allowed for repetition
@@ -68,8 +68,8 @@ using namespace std;
 
 ///////////////////////////////////////////////////////
 //Weights that are taken into account in the model NOTE check 1e6...
-#define W_FEASIBILITY 1e7
+#define W_FEASIBILITY 1e20
 //Penalization for unfulfilled constraint per day ->Daily constraints
-#define WEIGHT_DAY 1.0e6  
+#define WEIGHT_DAY 1.0e6
 
 #endif

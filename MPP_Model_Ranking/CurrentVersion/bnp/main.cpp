@@ -5,7 +5,6 @@ using namespace std;
 extern int g_N;
 extern double g_pc;
 extern double g_pm;
-extern double g_pm;
 extern double g_finalTime;
 /*
    Input arguments:
@@ -18,6 +17,7 @@ extern double g_finalTime;
 int main(int argc, char **argv){
 	int seed = atoi(argv[6]);
 	string saveFile=string(argv[7]);
+	g_pc=atof(argv[8]);
 //	srand(time(NULL));
 	srand(seed);
 	g_finalTime = atof(argv[4])*60;//25 * 60;

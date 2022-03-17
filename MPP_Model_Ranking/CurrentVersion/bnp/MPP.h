@@ -112,5 +112,7 @@ class MPP:public MPP_Problem{
     vector<Neighbor_swap> neighbors_swap, neighbors_swap2;
 
    void Greedy_Improvement(vector<int> &x_var, vector<double> &objFeasibility, vector<pair<double, double> > &objVariability);
+
+   void Improvement(vector<int> &best_sol, vector<double> &bestFeas, vector<pair<double, double> > &bestVar);
 };
 #endif

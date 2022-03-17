@@ -9,7 +9,7 @@ using namespace std;
 //population size
 int g_N=10;
 //xover probability
-double g_pc=1;
+double g_pc=0.2;
 //mutation probability
 double g_pm=0.01;
 //Stopping criterion set by time in minutes

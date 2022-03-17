@@ -208,7 +208,7 @@ void MA::runMemetic(){
 		  accumTime -= 0.1*finalTime;
 		  savePopulation();
 		}
-		cout <<"gen... "<<generation<<endl;
+		cout <<"gen... "<<generation << " " <<setprecision(20) <<population[0]->ind.fitness<<endl;
 	}
 
         savePopulation();

@@ -13,14 +13,16 @@ chomp $PATH;
 ##  ./main N = 10 pc = 0.9 pm = 0.3 finalTime = 60 fileName = "input_data/${name}" outputFile = "output_data/${name}" seed = 1 fileOutputIndividual = saved_individuals/out
 #  ./main N = 10 pc = 0.9 pm = 0.3 finalTime = 60 fileName = "input_data/${name}" outputFile = "output_data/${name}" seed = 1 fileInputIndividual = saved_individuals/out
 
-my @lineConf=("20 1440", "40 1440", "60 1440");
+my @lineConf=("20 120", "40 120", "60 120");
 #my @lineConf=("20 60", "40 60", "60 60");
 foreach my $line(@lineConf){
 	my @splitted = split ' ',$line;
 	my $days=$splitted[0];
 	my $time=$splitted[1];
-   for(my $seed=1; $seed<=35; $seed++){
-     print $fout "~/$PATH/main ".$PATH."/entradas/Platillos.csv $PATH/entradas/Restricciones.csv $days $time $PATH/salidas/dias_".$days."_minutos_".$time."_seed_".$seed.".csv ".$seed." $PATH/History/populationAndFitness_days_".$days."_min_".$time."_seed_".$seed;
-     print $fout "\n";
+ foreach my $px(("0.0", "0.2", "0.4", "0.6", "0.8", "1.0")){
+     for(my $seed=1; $seed<=35; $seed++){
+       print $fout "~/$PATH/main ".$PATH."/entradas/Platillos.csv $PATH/entradas/Restricciones.csv $days $time $PATH/salidas/dias_".$days."_minutos_".$time."_seed_".$seed.".csv ".$seed." $PATH/History/populationAndFitness_days_".$days."_min_".$time."_seed_".$seed."_Px_".$px." $px";
+       print $fout "\n";
+     }
    }
 }
