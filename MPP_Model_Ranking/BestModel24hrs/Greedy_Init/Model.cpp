@@ -27,7 +27,7 @@ double MPP::modelation(vector<double> &objFeas, vector<pair<double, double>> &ob
 	  double dcni=objVar[i].first;//dcn score max
 	  double repi=1.0-(objVar[i].second/((double) nDias)); //repetitions of this dcn score max
 	  double normalized = (1.0-((dcni+repi)/((double) nDias)));//min..
-	  normalized  =  g_l_rank[i] + normalized*(g_u_rank[i]-g_l_rank[i]-0.1);
+	  normalized  =  g_l_rank[i] + normalized*(g_u_rank[i]-g_l_rank[i]);
 //	  normalized *=g_rank[i];
 	  //dcn by categories..
 	  double dcnCat=objVar[i+N_TIMES].first;

@@ -35,12 +35,12 @@ double MPP::localSearch(double finalTime, bool isMeasuringTime){
         calculateFeasibilityDegree(x_var, objFeasibility[0], objFeasibility[1]);
         calculateVariability(x_var, objVariability);
         First_Improvement_Hill_Climbing(neighbors, x_var, objFeasibility, objVariability);
+	//Greedy_Improvement(x_var, objFeasibility, objVariability);
 //	cout <<fixed<< "before..."<<setprecision(10)<< modelation(objFeasibility, objVariability)<<endl;
-//	Greedy_Improvement(x_var, objFeasibility, objVariability);
 //	cout <<fixed<<setprecision(10)<< modelation(objFeasibility, objVariability)<<endl;
         First_Improvement_Hill_Climbing_swap(neighbors_swap, x_var, objFeasibility, objVariability);
 
-        First_Improvement_Hill_Climbing_swap2(neighbors_swap2, x_var, objFeasibility, objVariability);
+//        First_Improvement_Hill_Climbing_swap2(neighbors_swap2, x_var, objFeasibility, objVariability);
         if(comp_objs(objFeasibility, objVariability, bestFeas, bestVar)){
 	  bestFeas=objFeasibility;
 	  bestVar=objVariability;
@@ -75,13 +75,13 @@ double MPP::localSearch(double finalTime, bool isMeasuringTime){
 		selectedDay = infoNut[nbestday].second;
 	   }
 	   else{
-		if( rand()%2 && !badDaysVar.empty()){
-	 	   vector<int> tmp;
-	           for(auto it = badDaysVar.begin(); it != badDaysVar.end(); it++) tmp.push_back(*it);
-		   random_shuffle(tmp.begin(), tmp.end());
-		   selectedDay = tmp[0];
-		}
-		else
+	//	if( rand()%2 && !badDaysVar.empty()){
+	// 	   vector<int> tmp;
+	//           for(auto it = badDaysVar.begin(); it != badDaysVar.end(); it++) tmp.push_back(*it);
+	//	   random_shuffle(tmp.begin(), tmp.end());
+	//	   selectedDay = tmp[0];
+	//	}
+	//	else
 		 selectedDay = rand() % nDias;
 	   }
 	   perturb_day(x_var, selectedDay);
@@ -396,13 +396,15 @@ void MPP::update_inc_day(vector<vector<double>> &nut_info, Neighbor &new_neighbo
 }
 void MPP::Greedy_Improvement(vector<int> &x_var, vector<double> &objFeasibility, vector<pair<double, double> > &objVariability){
    vector<int> new_x_var((int)x_var.size(), 0);
-   auto newFeas=objFeasibility;
-   auto newVar=objVariability;
+   vector<double> newFeas=objFeasibility;
+   vector<pair<double, double> > newVar=objVariability;
 
    //find the heaviest time
    pair<long long, int> min_time(-INT_MAX, 0);
-   for(int i = 0; i < g_u_rank.size(); i++) min_time=max(min_time, {g_u_rank[i], i});
-   int idHeaviest=min_time.second;
+//   for(int i = 0; i < g_u_rank.size(); i++) min_time=max(min_time, {g_u_rank[i], i});
+   int idHeaviest=rand()%N_OPT_DAY;//min_time.second;
+   if(rand()%2) idHeaviest=MAIN_COURSE_1;
+   else idHeaviest=MAIN_COURSE_2;
    map<int, vector<int> > itemDay;
    map<int, int> rep;
    int maxCount = -INT_MAX;
@@ -433,12 +435,14 @@ void MPP::Greedy_Improvement(vector<int> &x_var, vector<double> &objFeasibility,
       }
    }
    evaluate(new_x_var, newFeas, newVar);
+   evaluate(x_var, objFeasibility, objVariability);
    auto newfit = modelation(newFeas, newVar);
    fitness=modelation(objFeasibility, objVariability);
    if(newfit < fitness){
      x_var=new_x_var; 
      objFeasibility=newFeas;
      objVariability=newVar;
+     cout<<setprecision(10)<<fitness<<" " <<newfit<<endl;
      fitness=newfit;
    }
 }

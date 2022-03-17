@@ -56,7 +56,7 @@ using namespace std;
 //in other words it is multiplied by the lowest time in a local search to attain a feasible solution
 //note that as this value is longer a high intensification for each local search might be applied
 //and might be a good parameter to tunne for the most challenging instances
-#define FACTOR_TIME_PER_LOCAL_SEARCH 100
+#define FACTOR_TIME_PER_LOCAL_SEARCH 300
 //#define FACTOR_TIME_PER_LOCAL_SEARCH 1
 
 //This defines the minimum days allowed for repetition
