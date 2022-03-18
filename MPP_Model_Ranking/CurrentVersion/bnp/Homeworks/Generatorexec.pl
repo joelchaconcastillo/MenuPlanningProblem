@@ -13,7 +13,7 @@ chomp $PATH;
 ##  ./main N = 10 pc = 0.9 pm = 0.3 finalTime = 60 fileName = "input_data/${name}" outputFile = "output_data/${name}" seed = 1 fileOutputIndividual = saved_individuals/out
 #  ./main N = 10 pc = 0.9 pm = 0.3 finalTime = 60 fileName = "input_data/${name}" outputFile = "output_data/${name}" seed = 1 fileInputIndividual = saved_individuals/out
 
-my @lineConf=("20 120", "40 120", "60 120");
+my @lineConf=("20 360", "40 360", "60 360");
 #my @lineConf=("20 60", "40 60", "60 60");
 foreach my $line(@lineConf){
 	my @splitted = split ' ',$line;
