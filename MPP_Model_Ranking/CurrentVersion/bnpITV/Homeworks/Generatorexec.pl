@@ -19,7 +19,7 @@ foreach my $line(@lineConf){
 	my @splitted = split ' ',$line;
 	my $days=$splitted[0];
 	my $time=$splitted[1];
- foreach my $px(("0.2", "0.6", "0.8")){
+ foreach my $px(("0.6")){
    foreach my $ITV(("0.0", "0.2", "0.4", "0.6", "0.8", "1.0")){
        for(my $seed=1; $seed<=35; $seed++){
          print $fout "~/$PATH/main ".$PATH."/entradas/Platillos.csv $PATH/entradas/Restricciones.csv $days $time $PATH/salidas/dias_".$days."_minutos_".$time."_seed_".$seed.".csv ".$seed." $PATH/History/populationAndFitness_days_".$days."_min_".$time."_seed_".$seed."_Px_".$px."_".$ITV." $px $ITV";

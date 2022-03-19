@@ -1,9 +1,12 @@
 for nday in 20 40 60;
 do
-  for px in 0.0 0.2 0.4 0.6 0.8 1.0;
+  for px in 0.2 0.8;
+ do
+ for ITV in 0.0 0.2 0.4 0.6 0.8 1.0; 
   do
+    echo "ITV  ".$ITV." Px "${px}
     rm $nday
-     for i in ../History/*days_${nday}_*_Px_${px};
+     for i in ../History/*days_${nday}_*_Px_${px}_${ITV};
      do
        tail -10 $i| awk '{print $NF}'| sort -n | head -n 1 >> $nday
      done
@@ -12,4 +15,5 @@ do
    	-e 'sprintf(summary(d), fmt="%.3f")' < $nday
    	#-e 'print(summary(d), digits=20)' < $nday
    done
+  done
 done
