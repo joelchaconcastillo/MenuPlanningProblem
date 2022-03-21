@@ -12,7 +12,7 @@ chomp $PATH;
 #my @configuration2 = split ' ', $configuration;#~ s/ /_/g; 
 
 #foreach my $time(("1440", "2880")){
-foreach my $time(("1440")){
+foreach my $time(("2880")){
   foreach my $days(("20", "40", "60")){
    foreach my $px(("0.2", "0.6")){
      foreach my $ITV(("0.4")){
