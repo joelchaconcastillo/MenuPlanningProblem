@@ -7,9 +7,13 @@ do
      do
        tail -10 $i| awk '{print $NF}'| sort -n | head -n 1 >> $nday
      done
-     echo "Dias.. $nday"
+#     echo "Dias.. $nday"
    Rscript -e 'd<-scan("stdin", quiet=TRUE)' \
-   	-e 'sprintf(summary(d), fmt="%.3f")' < $nday
+	   -e 'cat(sprintf(summary(d), fmt="%.10f"))' < $nday \
+	   -e 'print("\n")'
+#	   -e 'options(digits = 22)'\
+#	   -e 'cat(print(summary(d), digits=20))' < $nday
+
    	#-e 'print(summary(d), digits=20)' < $nday
    done
 done

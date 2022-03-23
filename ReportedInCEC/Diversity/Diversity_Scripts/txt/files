@@ -1,0 +1,12 @@
+BNP_PairBasedCrossover
+BNP_Uniform2
+CDRW_PairBasedCrossover
+CDRW_Uniform2
+COMB_3_3_PairBasedCrossover
+COMB_3_3_Uniform2
+Crowding_5_PairBasedCrossover
+Crowding_5_Uniform2
+Generational_PairBasedCrossover
+Generational_Uniform2
+RMDDC_PairBasedCrossover
+RMDDC_Uniform2 
