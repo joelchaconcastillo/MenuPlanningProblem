@@ -1,7 +1,7 @@
 rm *px*
 for nday in 20 40 60;
 do
-for min in 10 360 1440 2880;
+for min in 360 1440 2880;
  do
    for px in 0.2 0.6;
   do
